@@ -1,0 +1,16 @@
+package com.workforce360.repository;
+
+import com.workforce360.entity.UserRole;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+import java.util.Optional;
+
+public interface UserRoleRepository extends JpaRepository<UserRole,Long> {
+
+    List<UserRole> findByUserId(Long userId);
+
+    List<UserRole> findByRoleId(Long roleId);
+
+    boolean existsByUserIdAndRoleId(Long userId, Long roleId);
+}
